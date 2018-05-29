@@ -1,0 +1,83 @@
+.connexion-content {
+	width: 700px;
+	height: 500px;
+	margin: 100px auto;
+	/*display: inline-block;*/
+}
+
+.top-content {
+	height: 85px;
+	border-bottom: 2px solid #cd3535;
+	font-size: 50px;
+	text-align: center;
+	line-height: 85px;
+	font-family: Impact;
+	color: #cd3535;
+	background-color: #232323;
+}
+
+.left-content {
+	height: 415px;
+	width: 350px;
+	background-color: #232323;
+	border-right: 2px solid white;
+	float: left;
+}
+
+.right-content {
+	height: 415px;
+	width: 349px;
+	background-color: #232323;
+	float: right;
+}
+
+.text-1 {
+	font-size: 25px;
+	color: white;
+}
+
+.text-2 {
+	font-size: 20px;
+	color: white;
+}
+
+.btn-def {
+	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+	padding: 0.84rem 2.14rem;
+	font-size: 0.81rem;
+	margin: 0.375rem;
+	border: 0;
+	-webkit-border-radius: 0.125rem;
+	border-radius: 0.125rem;
+	cursor: pointer;
+	text-transform: uppercase;
+	white-space: normal;
+	word-wrap: break-word;
+	background-color: #cd3535 !important;
+	color: white !important;
+}
+
+/*button {
+    border: none;
+    outline: 0;
+    display: inline;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+}*/
+
+@media only screen and (max-width: 767px) {
+	.right-content {
+		display: none;
+	}
+	.connexion-content {
+		width: 350px;
+	}
+	.left-content {
+		border-right: none;
+	}
+}

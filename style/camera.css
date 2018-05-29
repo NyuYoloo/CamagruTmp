@@ -1,0 +1,28 @@
+.global-collage {
+	position: fixed;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.snap-content {
+    height: 100%;
+    width: calc(100% - 60px);
+    background-color: #2d5986;
+    position: fixed;
+    right: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.collage-content {
+	display: flex;
+	flex-direction: column;
+	justify-content: flex-start;
+	height: 100%;
+	text-align: center;
+}
+
+.collage-item {
+	width: 100px;
+}
