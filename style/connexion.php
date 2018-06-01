@@ -1,13 +1,13 @@
 <?php
 
 	session_start();
-
+	
 	if ($_SESSION['login'] != NULL) {
 		header('Location: profil.php');
-	}
+	}	
 
 	include_once 'inc/header.php';
-  	include_once 'config/setup.php';
+    include_once 'config/setup.php';
 
     if(!(empty($_POST) && empty($_POST['login']) && empty($_POST['passwd']))) {
 
@@ -35,7 +35,7 @@
     <link href="style/css/mdb.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="style/style.css">
 	<link rel="stylesheet" type="text/css" href="style/connexion.css">
-
+	
 	<div class="main-content">
 		<div class="menu-left" style="text-align: center;">
 			<div><a href="gallery.php"><img class="menu-icons separator" src="img/compass.png"></a></div>
@@ -62,20 +62,18 @@
 	                    <div style="text-align: center">
 	                        <button class="btn-def" type="submit">Login</button>
 	                    </div>
-	                    <div><a style="font-size: 17px; color: white;" href="reset_passwd.php">Mot de passe oublié</a></div>
 	                </form>
 	                <?php if ($ret != NULL) { ?>
                    		<div class="alert alert-warning" style="font-size: 15px">
                         	<?php echo $ret ?>
                     	</div>
                     <?php } ?>
-               		 <!-- Material form login -->
+               		 <!-- Material form login -->  
 				</div>
 				<div class="right-content" style="text-align: center">
 					<div class="text-1">Rejoins la communauté Camagru ! </div>
                 	<div class="text-2">Créer un compte CAMAGRU est simple, rapide, et vous garantit qu'un paquet de chocapic vous sera livré le lendemain.</div>
-<!--                 	<div class="btn-def"><a style="color: white;" href="inscription.php">Inscription</a></div> -->
-					<button class="btn-def"><a style="color: white" href="inscription.php">Inscription</a></button>
+                	<div class="btn-def"><a style="color: white;" href="inscription.php">Inscription</a></div>
 				</div>
 			</div>
 		</div>

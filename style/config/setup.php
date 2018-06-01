@@ -2,7 +2,7 @@
 set_include_path("../");
 include "config/database.php";
 try {
-	$bdd = new PDO($DB_DSN . ";dbname=camagru", $DB_USER, $DB_PASSWORD);
+	$bdd = new PDO($DB_DSN . ";dbname=camagruV2", $DB_USER, $DB_PASSWORD);
 }
 catch (Exception $e) {
 	try {
