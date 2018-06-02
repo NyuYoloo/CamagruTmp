@@ -88,7 +88,7 @@
 		</div>
     	<div class="center-content">
 			<div class="connexion-content">
-				<div class="top-content">INSCRIPTION</div>
+				<div class="top-content title-def">INSCRIPTION</div>
 				<div class="left-content">
 					<form action="inscription.php" method="post">
 	                    <!-- Material input login -->

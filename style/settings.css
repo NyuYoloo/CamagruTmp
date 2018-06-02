@@ -1,0 +1,29 @@
+.display {
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.global-cell-1 {
+	width: 400px;
+/*	height: 600px;*/
+	background-color: red;
+}
+
+.cell-1 {
+	background-color: #232323;
+	padding: 20px 5px;
+	border-bottom: 2px solid #cd3535;
+}
+
+.cell-2 {
+	background-color: #232323;
+	padding: 20px 5px;
+}
+
+@media screen and (max-width: 1280px) {
+	.display {
+		display: flex;
+		flex-direction: column;
+	}
+}

@@ -42,7 +42,7 @@
 		</div>
 		<div class="center-content">
 			<div class="connexion-content">
-				<div class="top-content">CONNEXION</div>
+				<div class="top-content title-def">CONNEXION</div>
 				<div class="left-content" style="text-align: center;">
 					<form action="connexion.php" method="post">
                     	<!-- Material input email -->

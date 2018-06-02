@@ -16,7 +16,7 @@
         $req->execute([$password]);
     }
 
-    if ($_GET['confirmed'] == "Delete Account")
+    if ($_GET['button'] == "Delete Account")
     {
         if ($_GET['confirm-email'] == $_SESSION['mail'])
         {
@@ -80,60 +80,76 @@
   } 
 ?>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="style/css/bootstrap.min.css" rel="stylesheet">
-  <link href="style/css/mdb.css" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style/connexion.css">
   <link rel="stylesheet" type="text/css" href="style/style.css">
+  <link rel="stylesheet" type="text/css" href="style/settings.css">
 
 
 <div class="main-content">
-    <div class="menu-left" style="text-align: center;">
-      <div><div><a href="gallery.php"><img class="menu-icons separator" src="img/compass.png"></a></div>
+  <div class="menu-left" style="text-align: center;">
+    <div>
+      <div><a href="gallery.php"><img class="menu-icons separator" src="img/compass.png"></a></div>
       <?php if ($_SESSION['login'] != NULL) { ?>
         <div><a href="camera.php"><img class="menu-icons separator" src="img/photo.png"></a></div>
         <div><a href="profil.php"><img class="menu-icons separator" src="img/avatar.png"></a></div>
-      </div>
-      <div>
-        <div><a href="settings.php"><img class="menu-icons-bottom separator" src="img/settings.png"></a></div>
-        <div><a href="script/logout.php"><img class="menu-icons-bottom separator" src="img/shutdown.png"></a></div>
-      </div>
-      <?php } ?>
     </div>
-    <div class="center-content">
-      <div class="row">
-        <div class="col-md-9 personal-info">
-          <?php if ($_GET['confirmed'] === "Delete Account") { ?>
-            <div class="alert alert-info alert-dismissable">
-              <a class="panel-close close" data-dismiss="alert">×</a> 
-              <i class="fa fa-coffee"></i>
-              <?php echo $ret ?>
-            </div>
-          <?php } ?>
-          <h3>Delete Account</h3>  
-          <form class="form-horizontal" role="form" method="GET">
-            <div class="form-group">
-              <label class="col-md-3 control-label">Your email:</label>
-              <div class="col-md-8">
-               <input class="form-control" type="email" name="confirm-email" value="">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-3 control-label">Your password:</label>
-              <div class="col-md-8">
-                <input class="form-control" type="password" name="passwd" value="">
-              </div>
-            </div>
-            <div class="form-group">
-              <label class="col-md-3 control-label"></label>
-            <div class="col-md-8">
-              <input type="submit" class="btn-def" name="confirmed" value="Delete Account">
-              <span></span>
-              <input type="reset" class="btn-def" value="Cancel">
-            </div>
-          </div>
-          </form>
-        </div>
+    <div>
+      <div><a href="settings.php"><img class="menu-icons-bottom separator" src="img/settings.png"></a></div>
+      <div><a href="script/logout.php"><img class="menu-icons-bottom separator" src="img/shutdown.png"></a></div>
+    </div>
+    <?php } ?>
+  </div>
+  <div class="center-content display" style="text-align: center">
+    <div class="global-cell-1">
+      <div class="title-def cell-1">Delete Account</div>
+      <div class="cell-2">
+        <form method="GET">
+          <div class="item-def">Email</div>
+          <input type="email" name="confirm-email">
+          <br>
+          <div class="item-def">Password</div>
+          <input type="password" name="passwd">
+          <br>
+          <input type="submit" name="button" value="Delete Account" class="btn-def">
+        </form>
       </div>
+    </div>
+    <div class="global-cell-1">
+      <div class="title-def cell-1">Change Password</div>
+      <div class="cell-2">
+        <form method="POST">
+          <div class="item-def">Password</div>
+          <input type="password" name="passwd">
+          <br>
+          <div class="item-def">Confirm Password</div>
+          <input type="password" name="cf_passwd">
+          <br>
+          <input type="submit" name="button" value="Change password" class="btn-def">
+        </form>
+      </div>
+    </div>
+    <div class="global-cell-1">
+      <div class="title-def cell-1">Change Settings</div>
+      <div class="cell-2">
+        <form method="POST">
+          <div class="item-def">Password</div>
+          <input type="password" name="passwd">
+          <br>
+          <div class="item-def">Confirm Password</div>
+          <input type="password" name="cf_passwd">
+          <br>
+          <input type="submit" name="button" value="Change password" class="btn-def">
+        </form>
+      </div>
+    </div>  
+  </div>
+</div>
+
 </div>
 <script type="text/javascript" src="js/test.js"></script> 
+
+
+
+
+
+
+
