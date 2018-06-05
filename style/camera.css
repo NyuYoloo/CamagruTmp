@@ -26,3 +26,7 @@
 .collage-item {
 	width: 100px;
 }
+
+.masks {
+ z-index: 1;
+}

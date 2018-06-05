@@ -1,0 +1,21 @@
+.display_img {
+	display: flex;
+	justify-content: space-around;
+	margin: 70px 0px;
+	flex-flow: wrap;
+}
+
+.display_img img {
+	margin: 10px;
+	border: 2px solid black;
+}
+
+.likeContent {
+width: auto;
+height: auto;
+align-self: baseline;
+display: flex;
+justify-content: center;
+align-content: center;
+align-items: center;
+}

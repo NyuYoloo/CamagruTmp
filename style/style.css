@@ -8,6 +8,7 @@ a {
 	background-color: #2d5986;
 	position: fixed;
 	right: 0;
+	overflow-x: auto;
 }
 
 .btn-def {
@@ -46,4 +47,22 @@ a {
 	font-size: 20px;
 	padding: 10px 0px;
 	color: white;
+}
+
+.display_img {
+	display: flex;
+	justify-content: space-around;
+	margin: 70px 0px;
+	flex-flow: wrap;
+}
+
+.display_img img {
+	margin: 10px;
+	border: 2px solid black;
+}
+
+@media screen and (max-width: 414px) {
+	.title-def {
+		font-size: 30px;
+	}
 }

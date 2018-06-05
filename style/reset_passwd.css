@@ -32,3 +32,10 @@
 	padding: 10px 0px;
 	color: white;
 }
+
+
+@media screen and (max-width: 414px) {
+	.global-cell-1 {
+		width: 220px;
+	}
+}

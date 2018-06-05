@@ -31,27 +31,29 @@
 	float: right;
 }
 
-/*button {
-    border: none;
-    outline: 0;
-    display: inline;
-    padding: 8px;
-    color: white;
-    background-color: #000;
-    text-align: center;
-    cursor: pointer;
-    width: 100%;
-    font-size: 18px;
-}*/
-
 @media only screen and (max-width: 767px) {
 	.right-content {
 		display: none;
 	}
 	.connexion-content {
-		width: 350px;
+		width: 290px;
 	}
 	.left-content {
 		border-right: none;
+		width: 290px;
+	}
+}
+
+@media only screen and (max-width: 320px) {
+	.right-content {
+		display: none;
+	}
+	.connexion-content {
+		width: 220px;
+		height: 250px;
+	}
+	.left-content {
+		border-right: none;
+		width: 220px;
 	}
 }
