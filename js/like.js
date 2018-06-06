@@ -1,5 +1,6 @@
-let like = document.querySelectorAll('#all-gal div div img'),
-	likeval = document.querySelectorAll('#all-gal div div')
+// alert("yoloo");
+let like = document.querySelectorAll('.likeContent img'),
+	likeval = document.querySelectorAll('.likeContent')
 
 for (let i = 0; i < like.length; i++) {
 	like[i].addEventListener("click", function(){likelike(likeval[i].id)});

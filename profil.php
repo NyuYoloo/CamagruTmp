@@ -35,8 +35,9 @@
 					<p><button>Contact</button></p>
 				</div>
 			</div>
-			<div class="display_img" style="margin: 10px;">
+      		<div id="all-gal" class="display_img">
 				<?php print_image(); ?>
 			</div>	
 		</div>
 	</div>
+<script type="text/javascript" src="js/like.js"></script>
