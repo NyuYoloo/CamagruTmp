@@ -2,7 +2,6 @@
 
 	session_start();
 
-	// include_once 'inc/security.php';
 	include_once 'inc/header.php';
 	include_once 'config/database.php';
   	include_once 'config/setup.php';
@@ -29,7 +28,6 @@
 				if ($mail == $user_info['mail'])
 					{
 						send_email($mail, $login);
-						// $_SESSION['login'] = $login;
 						$ret = "An email has been send to reset your password";
 					} else {$ret = "This email doesn't match your email";}
 			} else {$ret = "This login doesn't exist";}

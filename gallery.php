@@ -22,7 +22,7 @@
       </div>
       <?php } ?>
     </div>
-    <div class="center-content">
+    <div class="center-content" style="flex-direction: column;">
       <div id="all-gal" class="display_img">
 				<?php print_image_gal(); ?>
       </div>

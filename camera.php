@@ -50,7 +50,7 @@
           </div>
         </div>
       </div>
-      <div style="background-color: red; width: 640px; height: 480px; position: relative">
+      <div style="background-color: red; width: 640px; height: 480px; position: relative" id="drop_zone" ondrop="dropHandler(event);" ondragover="dragOverHandler(event);">
         <video id="video"></video>
         <div id="mask" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%">
           <div id="image-1" style="display: none" class="masks" ><img src="img/png/1.png" style="position: absolute; top: 170px; left: 320px; width: 100px;"></div>

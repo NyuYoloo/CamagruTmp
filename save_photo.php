@@ -3,7 +3,6 @@
 	include_once 'inc/security.php';
 	
 	header("Content-Type: text/plain");
-	// $data = (isset($_POST["data"])) ? htmlspecialchars($_POST["data"]) : NULL;
 
 	if (isset($_POST['data']) && isset($_POST['tab'])) {
 		savephoto(htmlspecialchars($_POST["data"]), $_POST["tab"]);
@@ -24,7 +23,7 @@
 	function savephoto($pt, $tab)
 	{
 				$tab = json_decode($tab);
-				// print_r($tab);
+
 				$pt = str_replace('data:image/png;base64,', '', $pt);
 				$pt = str_replace(' ','+', $pt);
 				$pt = base64_decode($pt);
@@ -32,22 +31,8 @@
 				if (!file_exists('photos')) {
 					mkdir('photos');
 				}
-
-				// foreach ($tab as $key => $value) {
-				// 	echo $key."&&&&".$value;
-				// 	if ($value == 1)
-				// 	{
-				// 		createmontage();
-				// 	}
-				// }
-				// $photo_cam = imagecreatefromstring($pt);
-				// if ($fil !== 'none')
-				//     createmontage($photo_cam, $fil);
-				// else
-				// {
 					$p = 'photos/'. $uiid . '.png';
 					insertIntoDatabase($p);
-					// echo $p;
 					file_put_contents($p, $pt);
 					$i = 0;
 				foreach ($tab as $key => $value) {
@@ -56,9 +41,7 @@
 					}
 					$i++;
 				}
-
 	}
-
 
 	function createmontage($img, $dst, $i)
 	{

@@ -64,7 +64,7 @@
 			Pour activer votre compte, veuillez cliquer sur le lien ci dessous
 			ou copier/coller dans votre navigateur internet.
 			 
-			http://'.$host.':8100/CamagruV2/script/validation.php?login='.$login.'&token='.$token.'
+			http://'.$host.':8100/Camagru/script/validation.php?login='.$login.'&token='.$token.'
 			 
 			 
 			---------------

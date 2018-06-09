@@ -20,3 +20,10 @@ CREATE TABLE likes (
     uid INT NOT NULL,
     img_id INT NOT NULL
 );
+
+CREATE TABLE comments (
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    img_id iNT NOT NULL,
+    date_creation DATETIME,
+    txt text CHARACTER SET latin1 NOT NULL
+);

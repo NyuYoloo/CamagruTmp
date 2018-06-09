@@ -1,8 +1,8 @@
 function  getDataURL() {
-  var dataURL = canvas.toDataURL();
+  let dataURL = canvas.toDataURL();
 }
 
-var streaming = false,
+let streaming = false,
           video        = document.querySelector('#video'),
           cover        = document.querySelector('#cover'),
           canvas       = document.querySelector('#canvas'),
@@ -11,14 +11,14 @@ var streaming = false,
           width = 640,
           height = 480;
 
-          var constraints = {
+          let constraints = {
             audio: false,
             video: true
         };
 
 navigator.mediaDevices.getUserMedia(constraints)
   .then(function (mediaStream) {
-        // var video = document.querySelector('video');
+        // let video = document.querySelector('video');
         video.srcObject = mediaStream;
         video.onloadedmetadata = function (e) {
             video.play();
@@ -29,19 +29,20 @@ navigator.mediaDevices.getUserMedia(constraints)
 });
 
       function takepicture() {
+          if (canvas.style.display === 'none') {
+            canvas.width = width;
+            canvas.height = height;
 
-          canvas.width = width;
-          canvas.height = height;
+            canvas.getContext('2d').drawImage(video, 0, 0, width, height);
+            data = canvas.toDataURL('image/png');
 
-          canvas.getContext('2d').drawImage(video, 0, 0, width, height);
-          data = canvas.toDataURL('image/png');
+            let myImg = new Image();
+            myImg.addEventListener('load', function() {
+              canvas.getContext('2d').drawImage(myImg, 0, 0, 200, 100);
+              dataR = canvas.toDataURL('image/png');
 
-          var myImg = new Image();
-          myImg.addEventListener('load', function() {
-            canvas.getContext('2d').drawImage(myImg, 0, 0, 200, 100);
-            dataR = canvas.toDataURL('image/png');
-
-          }, false);
+            }, false);
+          }
           let filtre = document.querySelectorAll("#mask img");
           let filtreDiv = document.querySelectorAll("#mask div");
           let tab = {};
@@ -49,7 +50,7 @@ navigator.mediaDevices.getUserMedia(constraints)
             tab[filtre[i].src] = filtreDiv[i].style.display == "none" ? 0 : 1;
           }
           tab = JSON.stringify(tab);
-          var xhr = new XMLHttpRequest();
+          let xhr = new XMLHttpRequest();
           xhr.onreadystatechange = function() {
             if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0))
             {
@@ -62,33 +63,33 @@ navigator.mediaDevices.getUserMedia(constraints)
         test = xhr.send('data='+ canvas.toDataURL('image/png') + "&tab=" + tab);
         console.log(test);
       };
-        // var pv = document.getElementById('pic_view');
+        // let pv = document.getElementById('pic_view');
 
         // // /*Creation of the contour of the image*/
-        // var newCadrage = document.createElement('div');
+        // let newCadrage = document.createElement('div');
         // newCadrage.className = 'cadrage';
         // newCadrage.id = xhr.responseText;
         // pv.insertBefore(newCadrage, pv.firstChild);
 
         // // /*Creation of image captured by the cam*/
-        // var newImg = document.createElement('img');
+        // let newImg = document.createElement('img');
         // newImg.className = 'moovable_image';
         // newImg.src  = xhr.responseText;
         // newImg.title = xhr.responseText;
 
 
         // /*Creation of the contour of the image deleting*/
-        // var newDelete = document.createElement('div');
+        // let newDelete = document.createElement('div');
         // newDelete.className = 'delete';
         // newDelete.id = 'delete';
 
         // /*Creation of image X (cross)*/
-        // var ImgDel = document.createElement('img');
+        // let ImgDel = document.createElement('img');
         // ImgDel.id= "cross";
         // ImgDel.src  = 'img/x2.png';
 
         // // /*Creation of the link on the cross*/
-        // var newLink = document.createElement('a');
+        // let newLink = document.createElement('a');
         // newLink.id = 'delpost_link';
         // newLink.href = 'script/delete_post.php?post_url='+ xhr.responseText + '&b=1';
         // newLink.title = xhr.responseText;
@@ -107,7 +108,7 @@ navigator.mediaDevices.getUserMedia(constraints)
       }, false);
 
       // function upload(){
-      //   var xhr = new XMLHttpRequest();
+      //   let xhr = new XMLHttpRequest();
       //   xhr.onreadystatechange = function() {
       //   if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
       //       alert(xhr.responseText);
@@ -147,7 +148,7 @@ function del_div(id) {
 
 function montage() {
 
-  var xhr = new XMLHttpRequest();
+  let xhr = new XMLHttpRequest();
   xhr.onreadystatechange = function() {
     if (xhr.readyState == 4 && (xhr.status == 200 || xhr.status == 0)) {
         alert(xhr.responseText);
@@ -157,3 +158,44 @@ function montage() {
   xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
   xhr.send('data='+ canvas.toDataURL('image/png'));
 }
+
+function dropHandler(ev) {
+  ev.preventDefault();
+  if (canvas.style.display === 'none') {
+    let canvas = document.querySelector('#canvas'),
+        data = ev.dataTransfer.items;
+    for (let i = 0; i < data.length; i += 1) {
+        if ((data[i].kind == 'file') && (data[i].type.match('^image/'))) {
+          let f = data[i].getAsFile();
+          let widthCan = document.getElementById("video").offsetWidth,
+          video = document.querySelector('#video'),
+          heightCan = document.getElementById("video").offsetHeight;
+          canvas.width = widthCan;
+          canvas.height = heightCan;
+          canvas.renderImage(f);
+          canvas.style.display = "block"
+          video.style.display = "none"
+        }
+    }
+    removeDragData(ev)
+  }
+}
+function dragOverHandler(ev) {
+  ev.preventDefault();
+}
+function removeDragData(ev) {
+  if (ev.dataTransfer.items) {
+    ev.dataTransfer.items.clear();
+  } else {
+    ev.dataTransfer.clearData();
+  }
+  }
+
+  HTMLCanvasElement.prototype.renderImage = function(blob){
+  let ctx = this.getContext('2d');
+  let img = new Image();
+  img.src = URL.createObjectURL(blob);
+  img.onload = function(){
+    ctx.drawImage(img, 0, 0, 640, 480)
+  }
+};

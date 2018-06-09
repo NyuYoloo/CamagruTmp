@@ -1,5 +1,5 @@
 <?php
-	
+
 	include_once 'inc/security.php';
 	include_once 'inc/header.php';
 	include_once 'script/display_image.php'
@@ -8,6 +8,7 @@
 
 	<link rel="stylesheet" type="text/css" href="style/style.css">
  	<link rel="stylesheet" type="text/css" href="style/profil.css">
+ <link rel="stylesheet" type="text/css" href="style/gallery.css">
 
 
 	<div class="main-content">
@@ -23,18 +24,7 @@
 			</div>
 			<?php } ?>
 		</div>
-		<div class="center-content">
-			<div class="text-center">
-				<div class="card">
-					<center>
-						<img class="avatar" src="<?php echo $image ?>">
-					</center>
-					<h1><?php echo $_SESSION['login']?> </h1>
-					<p class="title">CEO & Founder, Example</p>
-					<p>Harvard University</p>
-					<p><button>Contact</button></p>
-				</div>
-			</div>
+		<div class="center-content" style="flex-direction: column;">
       		<div id="all-gal" class="display_img">
 				<?php print_image(); ?>
 			</div>	

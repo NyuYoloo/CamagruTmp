@@ -5,27 +5,7 @@
     include_once 'inc/header.php';
     include_once 'script/modif.php'
 
-
 ?>
-
- <?php
-
-  if(isset($_POST['upload_file']))
-  {
-      if ($_FILES['upload_file']['error'] <= 2097152) {
-
-        $users = $_SESSION['login'];
-        mkdir('users', 0777, true);
-        $paths = "users/";
-        mkdir($paths . $users, 0777, true);
-        $path = "users/$users/";
-        $temp = explode(".", $_FILES['file']['name']);
-        $newfilename = str_replace($temp, 'name', "avatar");
-        move_uploaded_file($_FILES['photo']['tmp_name'], $path . $newfilename);
-        $image = "users/$users/avatar";
-      }
-  } 
-?> 
 
   <link rel="stylesheet" type="text/css" href="style/style.css">
   <link rel="stylesheet" type="text/css" href="style/settings.css">
@@ -88,15 +68,20 @@
     <div class="global-cell-1">
       <div class="title-def cell-1">Change Settings</div>
       <div class="cell-2">
-        <form method="POST">
+        <form method="GET">
           <div class="item-def">Login</div>
           <input type="text" name="login">
           <br>
           <div class="item-def">New login</div>
           <input type="text" name="new_login">
           <br>
-          <input type="submit" name="button" value="Save" class="btn-def">
+          <input type="submit" name="submit" value="Save Login" class="btn-def">
         </form>
+      </div>
+      <div class="cell-3 text-1" style="font-size: 15px;">
+        <?php if (isset($rets)) {
+          echo $rets;
+        } ?>
       </div>
     </div>  
   </div>
